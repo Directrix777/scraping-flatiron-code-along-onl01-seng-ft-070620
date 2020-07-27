@@ -28,9 +28,9 @@ class Scraper
   def make_courses
     courses = get_courses.collect{|course|
     new_course = Course.new
-    new_course.title = course.css("h2")
-    new_course.schedule = course.css("em")
-    new_course.description = course.css("p")
+    new_course.title = course.css("h2").text
+    new_course.schedule = course.css("em").text
+    new_course.description = course.css("p").text
   }
   end
 
